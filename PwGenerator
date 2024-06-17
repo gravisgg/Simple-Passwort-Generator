@@ -1,0 +1,31 @@
+import java.util.*;
+public class PwGenerator
+{
+    
+
+    public static int random(int zahl){
+    Random zZahlGen = new Random();
+    int Zzahl = zZahlGen.nextInt(zahl);
+    
+    return Zzahl;}
+    
+    public static char changeChar(int zahl){
+        char zeichen=(char) zahl;
+        return zeichen;
+    }
+    public static void main (String []  args){ 
+    int zahl = 0; 
+    int zaehler = 0;
+    String passwort = " ";
+    while (zaehler<= 7) {
+      zahl=random(127);
+      if (zahl > 32 && zahl < 127) {
+         passwort = passwort + changeChar(zahl);
+         zaehler++;    
+    
+    }
+}
+    System.out.println(passwort);  
+}
+    }
+
