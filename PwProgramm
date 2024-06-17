@@ -1,0 +1,36 @@
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.util.Random;
+import javax.swing.*;
+import java.awt.*;
+
+
+public class ProgrammPW
+{
+    public static int random (int zahl){
+    Random rand= new Random();
+    int zufallszahl=rand.nextInt(zahl);
+    return zufallszahl;
+  }
+    public static char changeChar(int zahl){
+    char zeichen=(char)zahl;
+    return zeichen;
+  }
+    public static void main (String[]args){
+    int zahl=0;
+    int zaehler=0;
+    String passwort="";   
+    while(zaehler<=7){  
+      zahl=random(127);
+      if(zahl>32 && zahl<127){
+        passwort=passwort + changeChar(zahl);
+        zaehler++;
+       }   
+     }
+    JOptionPane.showMessageDialog(null, "Dein Passwort: " + passwort);
+    StringSelection stringSelection = new StringSelection(passwort);
+    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clipboard.setContents(stringSelection, null);  
+  }  
+}
